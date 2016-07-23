@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Domaines</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Description</th>
+      <th>Note</th>
+      <th>Supprimer</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @domains.each do |domain| %>
+      <tr>
+        <td><%= link_to domain.name, domain %> <%= link_to raw('<span class="glyphicon glyphicon-edit" />'), edit_domain_path(domain) %></td>
+        <td><%= domain.description %></td>
+        <td><%= domain.note %></td>
+        <td>
+          <%= link_to raw('<span class="glyphicon glyphicon-remove" />'), domain, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Ajouter un domaine', new_domain_path %>

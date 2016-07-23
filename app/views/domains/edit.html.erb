@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+
+    <h1>Modifier domaine</h1>
+    <p>
+      <%= link_to 'Retour', @domain %> |
+      <%= link_to 'Liste', domains_path %>
+    </p>
+  </div>
+
+  <div class="content">
+    <%= form_for @domain, class: 'form-horizontal' do |f| %>
+        <div class="form-group">
+          <%= f.label 'Nom', class: 'control-label' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Note', class: 'control-label' %>
+          <%= f.select :note, [1,2,3,4,5,6,7,8,9,10], {}, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label 'Description', class: 'control-label' %>
+          <%= f.text_field :description, class:'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label 'Explication de la note', class: 'control-label' %>
+          <%= f.text_area :explanation, class: 'form-control', rows:'5' %>
+        </div>
+
+        <%= f.submit 'Mettre à jour', class: 'btn btn-default' %>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+
+    <h1>Nouveau domaine</h1>
+    <p>
+      <%= link_to 'Retour', domains_path %>
+    </p>
+  </div>
+
+  <div class="content">
+    <%= form_for @domain, class: 'form-horizontal' do |f| %>
+        <div class="form-group">
+          <%= f.label 'Nom', class: 'control-label' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label 'Description', class: 'control-label' %>
+          <%= f.text_field :description, class:'form-control' %>
+        </div>
+
+        <%= f.submit 'Créer', class: 'btn btn-default' %>
+    <% end %>
+
+  </div>
+</div>
