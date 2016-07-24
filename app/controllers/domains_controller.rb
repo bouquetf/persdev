@@ -1,15 +1,19 @@
 class DomainsController < ApplicationController
   before_action :set_domain, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
 
   # GET /domains
   # GET /domains.json
   def index
-    @domains = Domain.all
+    @domains = @current_user.domains.all
   end
 
   # GET /domains/1
   # GET /domains/1.json
   def show
+    if @domain.user != @current_user
+      redirect_to domains_path
+    end
   end
 
   # GET /domains/new
@@ -19,46 +23,47 @@ class DomainsController < ApplicationController
 
   # GET /domains/1/edit
   def edit
+    if @domain.user != @current_user
+      redirect_to domains_path
+    end
   end
 
   # POST /domains
   # POST /domains.json
   def create
     @domain = Domain.new(domain_params)
+    @domain.user = @current_user
 
-    respond_to do |format|
-      if @domain.save
-        format.html { redirect_to domains_path, notice: 'Domain was successfully created.' }
-        format.json { render :show, status: :created, location: @domain }
-      else
-        format.html { render :new }
-        format.json { render json: @domain.errors, status: :unprocessable_entity }
-      end
+    if @domain.save
+      redirect_to domains_path, notice: 'Domain was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /domains/1
   # PATCH/PUT /domains/1.json
   def update
-    respond_to do |format|
-      if @domain.update(update_params)
-        format.html { redirect_to @domain, notice: 'Domain was successfully updated.' }
-        format.json { render :show, status: :ok, location: @domain }
-      else
-        format.html { render :edit }
-        format.json { render json: @domain.errors, status: :unprocessable_entity }
-      end
+    if @domain.user != @current_user
+      redirect_to domains_path
+    end
+
+    if @domain.update(update_params)
+      redirect_to @domain, notice: 'Domain was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /domains/1
   # DELETE /domains/1.json
   def destroy
-    @domain.destroy
-    respond_to do |format|
-      format.html { redirect_to domains_url, notice: 'Domain was successfully destroyed.' }
-      format.json { head :no_content }
+    if @domain.user != @current_user
+      redirect_to domains_path
     end
+
+    @domain.destroy
+    redirect_to domains_url, notice: 'Domain was successfully destroyed.'
   end
 
   private

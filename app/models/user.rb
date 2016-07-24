@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :domains
+
   def self.from_omniauth(auth)
     user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)
     user.name = auth.info.name
