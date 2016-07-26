@@ -33,9 +33,16 @@ class DomainsController < ApplicationController
   def create
     @domain = Domain.new(domain_params)
     @domain.user = @current_user
+    @domain.plan = Plan.new(
+        vision: "",
+        target: "",
+        role: "",
+        axis: "",
+        resources: ""
+    )
 
     if @domain.save
-      redirect_to domains_path, notice: 'Domain was successfully created.'
+      redirect_to domains_path
     else
       render :new
     end
@@ -49,7 +56,7 @@ class DomainsController < ApplicationController
     end
 
     if @domain.update(update_params)
-      redirect_to @domain, notice: 'Domain was successfully updated.'
+      redirect_to @domain
     else
       render :edit
     end
@@ -63,7 +70,7 @@ class DomainsController < ApplicationController
     end
 
     @domain.destroy
-    redirect_to domains_url, notice: 'Domain was successfully destroyed.'
+    redirect_to domains_url
   end
 
   private

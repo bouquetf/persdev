@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <%= link_to 'Retour', :back %> |
+  <%= link_to 'Modifier', edit_domain_path(@domain) %> |
+  <%= link_to 'Liste', domains_path %>
+</p>
 
 <h1><%= @domain.name %> <%= @domain.note %><br />
   <small><%= @domain.description %></small></h1>
-
 <p>
   <%= @domain.explanation %>
 </p>
-<p><%= link_to 'Retour', domains_path %> | <%= link_to 'Modifier', edit_domain_path(@domain) %></p>
 
+<%= link_to 'Plan', domain_plan_path(@domain) %>

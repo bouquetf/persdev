@@ -8,17 +8,19 @@
       <th>Nom</th>
       <th>Description</th>
       <th>Note</th>
-      <th>Supprimer</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @domains.each do |domain| %>
       <tr>
-        <td><%= link_to domain.name, domain %> <%= link_to raw('<span class="glyphicon glyphicon-edit" />'), edit_domain_path(domain) %></td>
+        <td><%= link_to domain.name, domain_plan_path(domain) %> </td>
         <td><%= domain.description %></td>
         <td><%= domain.note %></td>
         <td>
+          <%= link_to raw('<span class="glyphicon glyphicon-file" />'), domain %>
+          <%= link_to raw('<span class="glyphicon glyphicon-edit" />'), edit_domain_path(domain) %>
           <%= link_to raw('<span class="glyphicon glyphicon-remove" />'), domain, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>

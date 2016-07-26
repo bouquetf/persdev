@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
-  resources :domains
+
+  resources :domains do
+    resource :plan, only: [:show, :edit, :update, :destroy]
+  end
+
 
 end

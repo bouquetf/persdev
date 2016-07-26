@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vision: MyString
+  target: MyString
+  role: MyString
+  axis: MyString
+  resources: MyString
+
+two:
+  vision: MyString
+  target: MyString
+  role: MyString
+  axis: MyString
+  resources: MyString

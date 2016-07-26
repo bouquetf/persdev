@@ -1,0 +1,26 @@
+<p>
+  <%= link_to 'Modifier', edit_domain_plan_path(@plan) %> |
+  <%= link_to 'Liste des domaines', domains_path %>
+</p>
+
+<h1>Plan <%= link_to @domain.name, @domain %> <%= link_to raw('<span class="glyphicon glyphicon-edit" />'), edit_domain_plan_path(@plan) %></h1>
+
+<h2>Vision ultime</h2>
+
+<%=raw @plan.vision %>
+
+<h2>But ultime</h2>
+
+<%=raw @plan.target %>
+
+<h2>Rôles</h2>
+
+<%=raw @plan.role %>
+
+<h2>Axes à développer</h2>
+
+<%=raw @plan.axis %>
+
+<h2>Ressources</h2>
+
+<%=raw @plan.resources %>

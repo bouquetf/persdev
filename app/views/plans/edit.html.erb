@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+
+    <h1>Plan <em><%= @domain.name %></em></h1>
+    <p><%= @domain.description %></p>
+    <p>
+      <%= link_to 'Voir', domain_plan_path(@domain) %> |
+      <%= link_to 'Liste des domaines', domains_path %>
+    </p>
+  </div>
+
+  <div class="content">
+    <%= simple_form_for @domain.plan, url: domain_plan_path(@domain),class: 'form-horizontal' do |f| %>
+        <%= f.input :vision, placeholder: "Quelle est ma vision ultime ? Qu'est-ce qui me fait rêver ?",
+                    label: "Vision : quoi ?", as: :wysihtml5,
+                    wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'blockquote': false } },
+                    class: 'form-control' %>
+        <%= f.input :target,
+                    placeholder: "Quels sont mes buts ultimes ? Pourquoi est-ce que je veux atteindre cette vision ?",
+                    label: "But : pourquoi ?", as: :wysihtml5,
+                    wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'blockquote': false } },
+                    class:'form-control' %>
+        <%= f.input :role, placeholder: "Qu'est-ce que je vais faire ?",
+                    label: "Rôle : qui ?", as: :wysihtml5,
+                    wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'blockquote': false } },
+                    class:'form-control' %>
+        <%= f.input :axis, placeholder: "Quels sont les axes sur lesquels je vais me focaliser ?",
+                    label: "Axes : domaines à développer ?", as: :wysihtml5,
+                    wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'blockquote': false } },
+                    class:'form-control' %>
+        <%= f.input :resources,
+                    placeholder: "Quelles sont les ressources que je vais devoir utiliser ? (Cours, contacts, …)",
+                    label: "Ressources : comment ?", as: :wysihtml5,
+                    wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'blockquote': false } },
+                    class: 'form-control' %>
+        <%= f.submit 'Mettre à jour', class: 'btn btn-default' %>
+    <% end %>
+
+  </div>
+</div>
