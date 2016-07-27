@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_action :set_domain, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
   before_action :check_connected
 
   def show
@@ -45,7 +46,7 @@ class PlansController < ApplicationController
   end
 
   def plan_params
-    params.fetch(:plan, {}).permit(:vision, :target, :role, :axis, :resources, :domain)
+    params.fetch(:plan, {}).permit(:vision, :target, :role, :axis, :resources, :domain, :plan)
   end
 
   def check_connected

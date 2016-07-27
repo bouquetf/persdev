@@ -33,6 +33,11 @@
                     label: "Ressources : comment ?", as: :wysihtml5,
                     wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'blockquote': false } },
                     class: 'form-control' %>
+        <%= f.input :plan,
+                    placeholder: "Actions à mettre en œuvre pour atteindre les objectifs (sur l'année, chaque mois/semaine/jour).",
+                    label: "Plan d'action", as: :wysihtml5,
+                    wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'blockquote': false } },
+                    class: 'form-control' %>
         <%= f.submit 'Mettre à jour', class: 'btn btn-default' %>
     <% end %>
 

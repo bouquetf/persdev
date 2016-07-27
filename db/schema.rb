@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726124059) do
+ActiveRecord::Schema.define(version: 20160727212614) do
 
   create_table "domains", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160726124059) do
     t.integer  "domain_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "plan"
   end
 
   create_table "users", force: :cascade do |t|
