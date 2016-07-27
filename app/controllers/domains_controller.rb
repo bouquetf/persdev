@@ -1,6 +1,7 @@
 class DomainsController < ApplicationController
   before_action :set_domain, only: [:show, :edit, :update, :destroy]
   before_action :current_user
+  before_action :check_connected
 
   # GET /domains
   # GET /domains.json
@@ -74,6 +75,12 @@ class DomainsController < ApplicationController
   end
 
   private
+  def check_connected
+    if @current_user == nil
+      render :status => :forbidden, :text => "Page accessible seulement connecté"
+    end
+  end
+
   def set_domain
     @domain = Domain.find(params[:id])
   end

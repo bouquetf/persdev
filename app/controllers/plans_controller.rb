@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_action :set_domain, only: [:show, :edit, :update, :destroy]
+  before_action :check_connected
 
   def show
     @plan = @domain.plan
@@ -45,5 +46,11 @@ class PlansController < ApplicationController
 
   def plan_params
     params.fetch(:plan, {}).permit(:vision, :target, :role, :axis, :resources, :domain)
+  end
+
+  def check_connected
+    if @current_user == nil
+      render :status => :forbidden, :text => "Page accessible seulement connecté"
+    end
   end
 end
