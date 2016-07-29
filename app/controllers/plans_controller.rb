@@ -1,6 +1,5 @@
 class PlansController < ApplicationController
   before_action :set_domain, only: [:show, :edit, :update, :destroy]
-  before_action :current_user
   before_action :check_connected
 
   def show

@@ -1,5 +1,4 @@
 class DeadlinesController < ApplicationController
-  before_action :current_user
   before_action :check_connected
   before_action :set_domain
   before_action :set_deadline, only: [:edit, :update, :destroy]
