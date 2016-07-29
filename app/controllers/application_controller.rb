@@ -14,6 +14,12 @@ class ApplicationController < ActionController::Base
     nil
   end
 
+  def check_connected
+    if @current_user == nil
+      render :status => :forbidden, :text => "Page accessible seulement connecté"
+    end
+  end
+
   def logged_in?
     current_user != nil
   end

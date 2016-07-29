@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :domains do
     resource :plan, only: [:show, :edit, :update, :destroy]
+    resources :deadlines, only: [:index, :new, :edit, :create, :update, :destroy]
   end
 
 

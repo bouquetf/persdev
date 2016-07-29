@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727212614) do
+ActiveRecord::Schema.define(version: 20160728204906) do
+
+  create_table "deadlines", force: :cascade do |t|
+    t.date "deadline"
+    t.string   "result"
+    t.string   "target"
+    t.integer  "domain_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "deadlines", ["domain_id"], name: "index_deadlines_on_domain_id"
 
   create_table "domains", force: :cascade do |t|
     t.string   "name"

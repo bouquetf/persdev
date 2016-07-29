@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Échéances <%= link_to @domain.name, @domain %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Échéance</th>
+      <th>Résultat attendu</th>
+      <th>But</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deadlines.each do |deadline| %>
+      <tr>
+        <td><%= deadline.deadline.strftime("%e/%m/%Y") %></td>
+        <td><%= deadline.result %></td>
+        <td><%= deadline.target %></td>
+        <td> <%= link_to raw('<span class="glyphicon glyphicon-edit" />'),
+                      edit_domain_deadline_path(@domain, deadline),
+                      title: "Modifier"
+          %> |
+          <%= link_to raw('<span class="glyphicon glyphicon-remove" />'),
+                      domain_deadline_path(@domain, deadline),
+                      title: "Supprimer",
+                      method: :delete, data: { confirm: 'Sûr ?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouvelle échéance', new_domain_deadline_path(@domain) %>

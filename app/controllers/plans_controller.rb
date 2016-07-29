@@ -48,10 +48,4 @@ class PlansController < ApplicationController
   def plan_params
     params.fetch(:plan, {}).permit(:vision, :target, :role, :axis, :resources, :domain, :plan)
   end
-
-  def check_connected
-    if @current_user == nil
-      render :status => :forbidden, :text => "Page accessible seulement connecté"
-    end
-  end
 end
