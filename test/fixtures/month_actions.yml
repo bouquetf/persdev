@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  month: MyString
+  result: MyString
+  target: 
+  user_id: 
+
+two:
+  month: MyString
+  result: MyString
+  target: 
+  user_id: 

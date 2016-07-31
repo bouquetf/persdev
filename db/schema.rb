@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728204906) do
+ActiveRecord::Schema.define(version: 20160730211544) do
 
   create_table "deadlines", force: :cascade do |t|
-    t.date "deadline"
+    t.date     "deadline"
     t.string   "result"
     t.string   "target"
     t.integer  "domain_id"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20160728204906) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
+
+  create_table "month_actions", force: :cascade do |t|
+    t.date     "month"
+    t.string   "result"
+    t.string   "target"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "month_actions", ["user_id"], name: "index_month_actions_on_user_id"
 
   create_table "plans", force: :cascade do |t|
     t.string   "vision"

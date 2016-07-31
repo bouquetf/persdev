@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Réalisations pour l'année</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Mois</th>
+      <th>Résultat</th>
+      <th>But</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @month_actions.each do |month_action| %>
+      <tr>
+        <td><%= month_action.month %></td>
+        <td><%= month_action.result %></td>
+        <td><%= month_action.target %></td>
+        <td>
+          <%= link_to raw('<span class="glyphicon glyphicon-edit" />'),
+                      edit_month_action_path(month_action),
+                      title: "Modifier"
+          %> |
+          <%= link_to raw('<span class="glyphicon glyphicon-remove" />'),
+                      month_action,
+                      method: :delete,
+                      title: "Supprimer",
+                      data: { confirm: 'Sûr ?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouvelle action', new_month_action_path %>

@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+
+    <h1>Nouvelle action mensuelle</h1>
+    <p>
+      <%= link_to 'Retour', month_actions_path %>
+    </p>
+  </div>
+
+  <div class="content">
+    <%= simple_form_for @month_action, class:'form-horizontal'  do |f| %>
+        <div class="form-inputs">
+          <%= f.input :month, as: :date,  discard_day: true, label: "Mois" %>
+          <%= f.input :result, label: "Résultat attendu" %>
+          <%= f.input :target, label: "But visé" %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.submit "Ajouter", class: 'btn btn-default' %>
+    <% end %>
+
+    </div>
+  </div>
+</div>

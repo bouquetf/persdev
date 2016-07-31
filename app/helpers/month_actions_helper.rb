@@ -1,0 +1,2 @@
+module MonthActionsHelper
+end

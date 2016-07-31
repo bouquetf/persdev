@@ -1,0 +1,13 @@
+<%= simple_form_for(@month_action) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :month, as: :date,  discard_day: true, label: "Mois" %>
+    <%= f.input :result, label: "Résultat attendu" %>
+    <%= f.input :target, label: "But visé" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, label: "Ajouter" %>
+  </div>
+<% end %>
