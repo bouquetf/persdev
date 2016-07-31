@@ -15,7 +15,7 @@
   <tbody>
     <% @month_actions.each do |month_action| %>
       <tr>
-        <td><%= month_action.month %></td>
+        <td><%= month_action.month.strftime("%b %Y") %></td>
         <td><%= month_action.result %></td>
         <td><%= month_action.target %></td>
         <td>
