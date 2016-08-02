@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2016-07-31
+  importance: 1
+  duration: 1
+  action: MyString
+  target: MyString
+  target: MyString
+  user_id: 
+
+two:
+  day: 2016-07-31
+  importance: 1
+  duration: 1
+  action: MyString
+  target: MyString
+  target: MyString
+  user_id: 

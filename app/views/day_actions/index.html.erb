@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Liste des actions sur la semaine</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Jour</th>
+      <th>Importance</th>
+      <th>Durée</th>
+      <th>Action</th>
+      <th>Résultats attendus</th>
+      <th>But</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @day_actions.each do |day_action| %>
+      <tr>
+        <td><%= day(day_action.day.wday) %></td>
+        <td><%= day_action.importance %></td>
+        <td><%= "#{day_action.duration/60}h#{day_action.duration%60}" %></td>
+        <td><%= day_action.action %></td>
+        <td><%= day_action.result %></td>
+        <td><%= day_action.target %></td>
+        <td><%= link_to raw('<span class="glyphicon glyphicon-edit" />'), edit_day_action_path(day_action),
+                        title: "Modifier" %> |
+          <%= link_to raw('<span class="glyphicon glyphicon-remove" />'), day_action, method: :delete,
+                      title: "Supprimer",
+                      data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouvelle action', new_day_action_path %>

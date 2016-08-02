@@ -1,0 +1,30 @@
+<h1>Modifier action</h1>
+
+<div class="content">
+  <%= simple_form_for @day_action , url: day_action_path(@day_action), class: 'form-horizontal' do |f| %>
+      <div class="form-inputs">
+        <%= f.input :day,
+                    as: :date,
+                    order:[:month, :year],
+                    html5:true,
+                    label: "Jour",
+                    class: 'form-control'
+        %>
+        <%= f.input :importance %>
+        <%= f.input :hours, as: :numeric %>
+        <%= f.input :minutes, as: :numeric %>
+        <%= f.input :action %>
+        <%= f.input :result %>
+        <%= f.input :target %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit 'Mettre à jour', class: 'btn btn-default' %>
+      </div>
+
+
+  <% end %>
+</div>
+
+
+<%= link_to 'Back', day_actions_path %>

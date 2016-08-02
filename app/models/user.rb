@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :domains
   has_many :month_actions
+  has_many :day_actions
 
   def self.from_omniauth(auth)
     user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)
