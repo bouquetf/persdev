@@ -3,7 +3,7 @@
 <div class="content">
 
   <%= simple_form_for @deadline , url: domain_deadline_path(@domain, @deadline), class: 'form-horizontal' do |f| %>
-      <%= f.label :deadline, "Date d'échéance" %>
+      <%= f.input :deadline, as: :date,  discard_day: true, label: "Échéance pour", class: 'form-control' %>
       <%= f.input :deadline,
                   as: :date,
                   start_year: Date.today.year,

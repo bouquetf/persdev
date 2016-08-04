@@ -4,17 +4,7 @@
 
   <%= simple_form_for @deadline , url: domain_deadlines_path(@domain), class: 'form-horizontal' do |f| %>
       <div class="form-inputs">
-        <%= f.input :deadline,
-                    as: :date,
-                    # start_year: Date.today.year,
-                    order:[:month, :year],
-                    placeholder: "Date",
-                    html5:true,
-                    label: "Date d'échéance",
-                    class: 'form-control',
-                    input_html: {value: Date.today}
-        %>
-
+        <%= f.input :deadline, as: :date,  discard_day: true, label: "Échéance pour", class: 'form-control' %>
         <%= f.input :result,
                     as: :text,
                     placeholder: "Quel est le résultat attendu",

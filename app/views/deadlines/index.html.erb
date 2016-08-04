@@ -15,7 +15,7 @@
   <tbody>
     <% @deadlines.each do |deadline| %>
       <tr>
-        <td><%= deadline.deadline.strftime("%e/%m/%Y") %></td>
+        <td><%= l(deadline.deadline, format: :month) %></td>
         <td><%= deadline.result %></td>
         <td><%= deadline.target %></td>
         <td> <%= link_to raw('<span class="glyphicon glyphicon-edit" />'),

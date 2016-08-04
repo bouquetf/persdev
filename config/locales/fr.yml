@@ -7,8 +7,6 @@ fr:
           has_one: "Vous ne pouvez pas supprimer l'enregistrement car une personne à charge %{record} existe"
           has_many: "Vous ne pouvez pas supprimer l'enregistrement parce que les %{record} dépendants existent"
   date:
-    full:
-      "%B %Y"
     abbr_day_names:
     - dim
     - lun
@@ -41,6 +39,7 @@ fr:
     - samedi
     formats:
       full: '%-d %B %Y'
+      month: "%B %Y"
       default: "%d/%m/%Y"
       short: "%e %b"
       long: "%e %B %Y"
