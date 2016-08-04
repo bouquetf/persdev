@@ -10,12 +10,27 @@
                     label: "Jour",
                     class: 'form-control'
         %>
-        <%= f.input :importance %>
-        <%= f.input :hours, as: :numeric %>
-        <%= f.input :minutes, as: :numeric %>
-        <%= f.input :action %>
-        <%= f.input :result %>
-        <%= f.input :target %>
+        <%= f.input :importance,
+                    label: "Importance de l'action",
+                    as: :numeric
+
+        %>
+        <%= f.input :hours,
+                    label: "Heures",
+                    as: :numeric
+        %>
+        <%= f.input :minutes,
+                    label: "Minutes",
+                    as: :numeric %>
+        <%= f.input :action,
+                    label: "Action à réaliser"
+        %>
+        <%= f.input :result,
+                    label: "Résultat attendu"
+        %>
+        <%= f.input :target,
+                    label: "But ultime"
+        %>
       </div>
 
       <div class="form-actions">

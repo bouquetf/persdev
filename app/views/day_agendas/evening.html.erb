@@ -1,0 +1,18 @@
+<h1>Revue de la journée</h1>
+
+<blockquote><%= @day_agenda.quote %></blockquote>
+
+<%= simple_form_for(@day_agenda) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :success,
+                  label: "Mes succès",
+                  rows: 3,
+                  as: :wysihtml5,
+                  wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'image':false, 'blockquote': false } },
+                  placeholder: "Aujourd'hui, j'ai eu du succès :" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit 'Clôturer la journée', class: 'btn btn-default'  %>
+    </div>
+<% end %>

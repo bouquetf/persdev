@@ -1,0 +1,34 @@
+<h1>Ma journée…</h1>
+
+<%= simple_form_for(@day_agenda) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :quote,
+                  label: "Citation inspirante",
+                  placeholder: "Lorsque vous faites un choix dans la vie, n'oubliez pas de vivre. -- Samuel Johnson"
+      %>
+
+      <%= f.input :targets,
+                  label: "Mes buts",
+                  rows: 3,
+                  as: :wysihtml5,
+                  wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'color': true, 'image':false, 'blockquote': false } },
+                  placeholder: "Rappel des buts ultimes que je cherche à atteindre" %>
+
+      <%= f.input :actions,
+                  label: "Grandes actions",
+                  as: :wysihtml5,
+                  wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'image': false, 'color': true, 'blockquote': false } },
+                  placeholder: "Quelles sont les grandes actions que je vais accomplir aujourd'hui ?" %>
+
+      <%= f.input :agenda, as: :wysihtml5,
+                  label: "Agenda de la journée",
+                  wysihtml5: { locale: "fr-FR", toolbar: {'font-styles': false, 'image':false, 'color': true, 'blockquote': false } },
+                  placeholder: "De quoi est-ce que ma journée sera faite ?"
+      %>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit 'Débuter la journée', class: 'btn btn-default'  %>
+    </div>
+<% end %>

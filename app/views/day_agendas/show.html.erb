@@ -1,0 +1,39 @@
+<h1><%= l(@day_agenda.day, format: :full) %></h1>
+<div>
+  <%= link_to 'Débuter la journée', edit_morning_agenda_path(@day_agenda) %> |
+  <%= link_to 'Finir la journée', edit_evening_agenda_path(@day_agenda) %>
+</div>
+
+<div>
+  <p>
+  <blockquote>
+    <%= @day_agenda.quote %>
+  </blockquote>
+  </p>
+
+</div>
+
+<div class="col-md-6">
+
+  <%= raw(@day_agenda.agenda) %>
+</div>
+
+<div class="col-md-6">
+  <p>
+    <strong>Buts ultimes de la journée</strong><br />
+
+    <%= raw(@day_agenda.targets) %>
+  </p>
+
+  <p>
+    <strong>Grandes actions de la journée</strong><br />
+
+    <%= raw(@day_agenda.actions) %>
+  </p>
+
+  <p>
+    <strong>Succès accomplis</strong> <br />
+
+    <%= raw(@day_agenda.success) %>
+  </p>
+</div>

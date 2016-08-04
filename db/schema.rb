@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731161458) do
+ActiveRecord::Schema.define(version: 20160802130157) do
 
   create_table "day_actions", force: :cascade do |t|
     t.date     "day"
@@ -26,6 +26,20 @@ ActiveRecord::Schema.define(version: 20160731161458) do
   end
 
   add_index "day_actions", ["user_id"], name: "index_day_actions_on_user_id"
+
+  create_table "day_agendas", force: :cascade do |t|
+    t.date     "day"
+    t.string   "agenda"
+    t.string   "quote"
+    t.string   "targets"
+    t.string   "actions"
+    t.string   "success"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "day_agendas", ["user_id"], name: "index_day_agendas_on_user_id"
 
   create_table "deadlines", force: :cascade do |t|
     t.date     "deadline"

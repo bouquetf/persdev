@@ -8,15 +8,36 @@
                     order:[:month, :year],
                     html5:true,
                     label: "Jour",
-                    class: 'form-control',
-                    input_html: {value: Date.today}
+                    input_html: {value: Date.today },
+                    class: 'form-control'
         %>
-        <%= f.input :importance %>
-        <%= f.input :hours, as: :numeric %>
-        <%= f.input :minutes, as: :numeric %>
-        <%= f.input :action %>
-        <%= f.input :result %>
-        <%= f.input :target %>
+        <%= f.input :importance,
+                    label: "Importance de l'action",
+                    as: :numeric,
+                    class: 'form-control'
+        %>
+        <%= f.input :hours,
+                    label: "Heures",
+                    as: :numeric,
+                    class: 'form-control'
+        %>
+        <%= f.input :minutes,
+                    label: "Minutes",
+                    as: :numeric,
+                    class: 'form-control'
+        %>
+        <%= f.input :action,
+                    label: "Action à réaliser",
+                    class: 'form-control'
+        %>
+        <%= f.input :result,
+                    label: "Résultat attendu",
+                    class: 'form-control'
+        %>
+        <%= f.input :target,
+                    label: "But ultime",
+                    class: 'form-control'
+        %>
       </div>
 
       <div class="form-actions">

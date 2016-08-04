@@ -3,12 +3,10 @@ class SessionsController < ApplicationController
     begin
       @user = User.from_omniauth(request.env['omniauth.auth'])
       session[:user_id] = @user.id
-      logger.info domains_path
-      redirect_to domains_path
     rescue
       flash[:warning] = "Problème lors de l'authentification"
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def destroy

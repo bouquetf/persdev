@@ -1,0 +1,17 @@
+<%= simple_form_for(@day_agenda) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :date %>
+    <%= f.input :agenda %>
+    <%= f.input :quote %>
+    <%= f.input :targets %>
+    <%= f.input :actions %>
+    <%= f.input :success %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
