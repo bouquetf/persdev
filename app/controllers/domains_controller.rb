@@ -5,7 +5,7 @@ class DomainsController < ApplicationController
   # GET /domains
   # GET /domains.json
   def index
-    @domains = @current_user.domains.all
+    @domains = @current_user.domains.order(note: :asc)
   end
 
   # GET /domains/1
