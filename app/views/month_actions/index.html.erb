@@ -8,6 +8,7 @@
       <th>Mois</th>
       <th>Résultat</th>
       <th>But</th>
+      <th>Échéances</th>
       <th></th>
     </tr>
   </thead>
@@ -18,6 +19,11 @@
         <td><%= l(month_action.month, format: :month) %></td>
         <td><%= month_action.result %></td>
         <td><%= month_action.target %></td>
+        <td>
+          <% if month_action.deadline %>
+            <%= domain = month_action.deadline.domain
+                link_to domain.name, domain_deadlines_path(domain) %></td>
+          <% end %>
         <td>
           <%= link_to raw('<span class="glyphicon glyphicon-edit" />'),
                       edit_month_action_path(month_action),

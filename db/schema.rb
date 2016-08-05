@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802130157) do
+ActiveRecord::Schema.define(version: 20160804212056) do
 
   create_table "day_actions", force: :cascade do |t|
     t.date     "day"
@@ -46,11 +46,13 @@ ActiveRecord::Schema.define(version: 20160802130157) do
     t.string   "result"
     t.string   "target"
     t.integer  "domain_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "month_action_id"
   end
 
   add_index "deadlines", ["domain_id"], name: "index_deadlines_on_domain_id"
+  add_index "deadlines", ["month_action_id"], name: "index_deadlines_on_month_action_id"
 
   create_table "domains", force: :cascade do |t|
     t.string   "name"

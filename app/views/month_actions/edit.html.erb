@@ -13,6 +13,9 @@
           <%= f.input :month, as: :date,  discard_day: true, label: "Mois" %>
           <%= f.input :result, label: "Résultat attendu" %>
           <%= f.input :target, label: "But visé" %>
+          <% if @month_action.deadline %>
+            Domaine: <%= @month_action.deadline.domain.name %>
+          <% end %>
         </div>
 
         <div class="form-actions">

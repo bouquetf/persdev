@@ -13,6 +13,10 @@
           <%= f.input :month, as: :date,  discard_day: true, label: "Mois" %>
           <%= f.input :result, label: "Résultat attendu" %>
           <%= f.input :target, label: "But visé" %>
+          <div class="form-group">
+            <%= label_tag "Domaine auquel l'action est liée" %> <br />
+            <%= select_tag "Domaines", content_tag(:option,'Domaine...',:value=>"")+options_from_collection_for_select(@domains, "id", "name") %>
+          </div>
         </div>
 
         <div class="form-actions">
