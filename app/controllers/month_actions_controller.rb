@@ -8,7 +8,7 @@ class MonthActionsController < ApplicationController
   # GET /month_actions/new
   def new
     @month_action = @current_user.month_actions.new
-    @domains = Domain.order(note: :asc)
+    @domains = @current_user.domains.order(note: :asc)
   end
 
   # GET /month_actions/1/edit
