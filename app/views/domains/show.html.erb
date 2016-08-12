@@ -7,7 +7,7 @@
 <h1><%= @domain.name %> <%= @domain.note %><br />
   <small><%= @domain.description %></small></h1>
 <p>
-  <%= @domain.explanation %>
+  <%= raw(@domain.explanation) %>
 </p>
 
 <%= link_to 'Plan', domain_plan_path(@domain) %>
