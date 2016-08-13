@@ -5,7 +5,7 @@ class DayActionsController < ApplicationController
   # GET /day_actions
   # GET /day_actions.json
   def index
-    @day_actions = current_user.day_actions.all
+    @day_actions = current_user.day_actions.order(day: :asc)
   end
 
   # GET /day_actions/new

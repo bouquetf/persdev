@@ -4,7 +4,7 @@ class DeadlinesController < ApplicationController
   before_action :set_deadline, only: [:edit, :update, :destroy]
 
   def index
-    @deadlines = @domain.deadlines.all
+    @deadlines = @domain.deadlines.order(deadline: :asc)
   end
 
   def new

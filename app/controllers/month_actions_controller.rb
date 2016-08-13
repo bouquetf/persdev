@@ -2,7 +2,7 @@ class MonthActionsController < ApplicationController
   before_action :set_month_action, only: [:edit, :update, :destroy]
 
   def index
-    @month_actions = @current_user.month_actions.all
+    @month_actions = @current_user.month_actions.order(month: :asc)
   end
 
   # GET /month_actions/new
