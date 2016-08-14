@@ -2,6 +2,10 @@
 
 <h1>Liste des actions sur la semaine</h1>
 
+<%= link_to "< Semaine précédente", day_actions_path(beginning: @beginning-7) %> |
+Semaine du <%= l(@beginning, format: :full)  %> |
+<%= link_to "Semaine suivante >", day_actions_path(beginning: @beginning+7) %>
+
 <table class="table">
   <thead>
     <tr>

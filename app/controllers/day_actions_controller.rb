@@ -5,7 +5,16 @@ class DayActionsController < ApplicationController
   # GET /day_actions
   # GET /day_actions.json
   def index
-    @day_actions = current_user.day_actions.order(day: :asc)
+    if params[:beginning]
+      @beginning = Date.parse(params[:beginning], "%Y-%m-%d")
+    else
+      @beginning = Date.today.beginning_of_week
+    end
+
+    @day_actions = current_user.day_actions
+                       .where("day >= ?", @beginning)
+                       .where("day < ?", @beginning+7)
+                       .order(day: :asc)
   end
 
   # GET /day_actions/new
