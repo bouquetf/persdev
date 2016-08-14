@@ -8,7 +8,13 @@ class DayAgendasController < ApplicationController
   end
 
   def today
-    today = @current_user.day_agendas.find_or_create_by(day: Date.today)
+    if params[:day]
+      day = Date.parse(params[:day])
+    else
+      day = Date.today
+    end
+
+    today = @current_user.day_agendas.find_or_create_by(day: day)
 
     redirect_to day_agenda_path(today)
   end

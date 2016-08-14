@@ -1,4 +1,11 @@
+<div>
+  <%= link_to 'Jour précédent', today_agenda_path(day: @day_agenda.day - 1) %> |
+  <%= link_to 'Aujourd\'hui', today_agenda_path %> |
+  <%= link_to 'Jour Suivant', today_agenda_path(day: @day_agenda.day + 1) %>
+</div>
+
 <h1><%= l(@day_agenda.day, format: :full) %></h1>
+
 <div>
   <%= link_to 'Débuter la journée', edit_morning_agenda_path(@day_agenda) %> |
   <%= link_to 'Finir la journée', edit_evening_agenda_path(@day_agenda) %>
@@ -10,7 +17,6 @@
     <%= @day_agenda.quote %>
   </blockquote>
   </p>
-
 </div>
 
 <div class="col-md-6">
